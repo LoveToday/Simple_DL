@@ -23,7 +23,6 @@ test_labels_y = test_data_set['test_set_y']
 print(train_set_x.shape, train_labels_y.shape)
 
 # 维度处理
-
 m_train = train_set_x.shape[0]
 m_test = test_set_x.shape[0]
 
@@ -35,16 +34,12 @@ train_labels_org = train_labels_y[:]
 test_labels_org = test_labels_y[:]
 
 # 重新设置维度
-
 train_data_tran = train_data_org.reshape(m_train,-1).T
 test_data_tran = test_data_org.reshape(m_test,-1).T
 
 
-
 train_labels_tran = train_labels_org[np.newaxis, :]
 test_labels_tran = test_labels_org[np.newaxis, :]
-
-
 
 # 标准化数据
 train_data_sta = train_data_tran/255
@@ -64,7 +59,6 @@ b = 0
 print(n_dim)
 
 # 定义前向传播函数，代价函数，以及梯度下降
-
 def propagate(w, b, x, y):
     # 前向传播函数
     z = np.dot(w.T, x) + b
@@ -80,7 +74,6 @@ def propagate(w, b, x, y):
     db = 1/m * np.sum(A - y)
 
     grands = { 'dw': dw, 'db': db }
-
     return grands, J
     
 # 优化部分
@@ -127,7 +120,6 @@ def model(w,b,x_train,y_train,x_test,y_test,alpha,n_iters):
     y_pred_train = predict(w,b,x_train)
     y_pred_test = predict(w,b,x_test)
 
-
     print('the train acc is', np.mean(y_pred_train == y_train) * 100, '%')
     print('the test acc is', np.mean(y_pred_test == y_test) * 100, '%')
 
@@ -163,7 +155,8 @@ image = plt.imread(testPath)
 
 print(image.shape)
 image_tran = transform.resize(image, (64,64,3)).reshape(64*64*3,1)
-print(image_tran.shape)
+print('1111111111111111111112222222222222222222222233333333333333333333')
+print(image_tran[:])
 
 print('++++++w',b['w'], b['b'])
 
